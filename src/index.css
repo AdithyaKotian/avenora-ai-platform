@@ -1,25 +1,123 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────
+   Design Tokens — Avenora AI Brand System
+────────────────────────────────────────────────────────── */
 @theme {
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Menlo, monospace;
   --color-brand-lime: #CCFF00;
+  --color-brand-lime-dim: #b8e600;
 }
 
+/* ─────────────────────────────────────────────────────────
+   Base Styles
+────────────────────────────────────────────────────────── */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
+
   code, pre, .font-mono {
     font-family: var(--font-mono);
   }
+
+  /* Consistent focus ring for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #CCFF00;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Remove outline for mouse users only */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Consistent scrollbar styling for modal content */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(204, 255, 0, 0.2) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(204, 255, 0, 0.2);
+    border-radius: 2px;
+  }
 }
 
-/* Custom subtle glows */
+/* ─────────────────────────────────────────────────────────
+   Component Utilities
+────────────────────────────────────────────────────────── */
+
+/* Brand glow effects */
 .glow-lime-subtle {
   box-shadow: 0 0 35px -8px rgba(204, 255, 0, 0.25);
 }
 
 .glow-lime-intense {
   box-shadow: 0 0 50px -5px rgba(204, 255, 0, 0.35);
+}
+
+/* Smooth modal backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+}
+
+/* Prevent layout shift during font load */
+.font-sans {
+  font-display: swap;
+}
+
+/* Range input — lime accent */
+input[type="range"] {
+  accent-color: #CCFF00;
+}
+
+/* Custom select arrow consistent across browsers */
+select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25em 1.25em;
+  padding-right: 2.5rem;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Animate gradient for ambient backgrounds */
+@keyframes gradientShift {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 0.26; }
+}
+
+.animate-ambient {
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+/* Page entry fade — prevents flash of unstyled content */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#root {
+  animation: pageFadeIn 0.4s ease-out forwards;
 }

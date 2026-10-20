@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Mic,
   AlertOctagon,
@@ -6,13 +6,29 @@ import {
   Workflow,
   ArrowUpRight,
   CheckCircle2,
+  X,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+
 
 export const BentoGrid: React.FC = () => {
   const [selectedJob, setSelectedJob] = useState<number | null>(null);
   const [resBalance, setResBalance] = useState(82);
   const [meetingTranscribed, setMeetingTranscribed] = useState(false);
+
+  // Close modal on Escape key + body scroll lock
+  useEffect(() => {
+    if (selectedJob === null) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedJob(null);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedJob]);
 
   const jobDetails = [
     {
@@ -385,7 +401,11 @@ export const BentoGrid: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 modal-backdrop"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={`capability-title-${selectedJob}`}
+              onClick={(e) => { if (e.target === e.currentTarget) setSelectedJob(null); }}
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.94, y: 20 }}
@@ -396,9 +416,10 @@ export const BentoGrid: React.FC = () => {
               >
                 <button
                   onClick={() => setSelectedJob(null)}
-                  className="absolute top-6 right-6 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-900 border border-white/10 cursor-pointer"
+                  className="absolute top-6 right-6 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-900 border border-white/10 cursor-pointer transition-colors"
+                  aria-label="Close capability deep dive"
                 >
-                  ✕
+                  <X className="w-4 h-4" />
                 </button>
 
                 {(() => {
@@ -408,7 +429,7 @@ export const BentoGrid: React.FC = () => {
                       <span className="text-xs font-mono uppercase tracking-wider text-[#CCFF00]">
                         Capability Deep Dive · 0{job.id}
                       </span>
-                      <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-2">
+                      <h3 id={`capability-title-${job.id}`} className="text-2xl sm:text-3xl font-extrabold text-white mt-1 mb-2">
                         {job.title}
                       </h3>
                       <div className="text-xs text-zinc-400 font-mono mb-4">{job.subtitle}</div>

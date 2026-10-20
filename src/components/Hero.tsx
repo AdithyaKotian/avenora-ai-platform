@@ -66,14 +66,18 @@ export const Hero: React.FC<HeroProps> = ({ onRequestAccess, onOpenTour }) => {
       {/* CTA Button Group */}
       <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 z-10">
         <button
+          id="hero-request-access"
           onClick={onRequestAccess}
           className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-semibold bg-[#CCFF00] text-black hover:bg-[#b8e600] active:scale-95 transition-all shadow-[0_0_35px_rgba(204,255,0,0.4)] tracking-tight flex items-center justify-center space-x-2 cursor-pointer"
+          aria-label="Request enterprise access to Avenora AI"
         >
-          <span>Request Enterprise Access -&gt;</span>
+          <span>Request Enterprise Access →</span>
         </button>
         <button
+          id="hero-architecture-tour"
           onClick={onOpenTour}
           className="w-full sm:w-auto px-8 py-4 rounded-full text-base font-medium bg-zinc-950 border border-white/20 text-white hover:bg-zinc-900 hover:border-white/40 transition-all tracking-tight flex items-center justify-center space-x-2 cursor-pointer"
+          aria-label="Open interactive architecture tour"
         >
           <span>Interactive Architecture Tour</span>
         </button>

@@ -40,10 +40,12 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onRequestDemo, onOpenWhitepa
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
+          id="cta-request-demo"
             onClick={onRequestDemo}
             className="w-full sm:w-auto px-9 py-4 rounded-full text-base font-semibold bg-[#CCFF00] text-black hover:bg-[#b8e600] active:scale-95 transition-all shadow-[0_0_35px_rgba(204,255,0,0.4)] tracking-tight flex items-center justify-center space-x-2 cursor-pointer"
+            aria-label="Schedule an enterprise walkthrough of Avenora AI"
           >
-            <span>Schedule Enterprise Walkthrough -&gt;</span>
+            <span>Schedule Enterprise Walkthrough →</span>
           </button>
           <button
             onClick={onOpenWhitepaper}

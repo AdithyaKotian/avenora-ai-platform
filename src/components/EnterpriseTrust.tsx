@@ -119,7 +119,7 @@ export const EnterpriseTrust: React.FC<EnterpriseTrustProps> = ({ onOpenWhitepap
               onClick={onOpenTour}
               className="w-full sm:w-auto px-6 py-3 rounded-full text-xs font-semibold bg-[#CCFF00] text-black hover:bg-[#b8e600] transition-colors cursor-pointer text-center"
             >
-              Interactive Architecture Tour -&gt;
+              Interactive Architecture Tour →
             </button>
           </div>
         </div>
