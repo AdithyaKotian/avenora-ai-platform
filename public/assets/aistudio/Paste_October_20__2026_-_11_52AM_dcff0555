@@ -1,0 +1,691 @@
+
+Model 11:49 AM
+ThinkingThoughts
+Expand to view model thoughts
+
+chevron_right
+Part 1: Website Architecture & Enterprise Copy
+1. Hero Section
+Visual Theme: Deep Black (bg-black / bg-zinc-950) with an ambient neon green radial backlight (#ccff00 / lime-400) illuminating an abstract execution graph preview.
+Overline/Badge: [ ENTERPRISE AI EXECUTION PLATFORM ] (Pill badge with subtle border-lime-400/30 and text-lime-400).
+Headline: Turn Execution Into an Advantage.
+Sub-headline: See. Predict. Execute. Avenora AI unifies data, systems, and teams to eliminate broken handoffs and transform high-level strategy into verifiable business outcomes.
+CTAs:
+Primary (Pill, Neon Lime): "Request Enterprise Access" ->
+Secondary (Pill, Dark with subtle border): "Interactive Architecture Tour"
+Platform Signal Tagline: “Zero manual status reports. Zero context loss. Built for enterprise scale.”
+2. Social Proof & Trust Ledger
+Visual Theme: Deep Black (bg-zinc-950) transitioning smoothly from the Hero.
+Micro-Copy: Trusted by operational leaders engineering high-velocity execution across global enterprises.
+Trust Metrics:
+$4.2B+ Pipeline Value Tracked
+68% Reduction in Cross-Functional Handoff Delays
+100% Context Retention Across Enterprise Tools
+Compliance Badges: ISO 27001 Certified • SOC 2 Type II Ready • GDPR Compliant • AES-256 at Rest & In-Transit
+3. The Problem: The Execution Gap
+Visual Theme: Crisp White (bg-white) for immediate visual contrast and cognitive impact.
+Section Tag: [ THE SYSTEMIC FAILURE ] (Dark Charcoal badge)
+Headline: Your enterprise has data everywhere. Execution still breaks in between.
+Mechanism Narrative: Modern organizations don’t have an intelligence deficit—they have an Execution Gap. Strategy is conceived in leadership suites, documented across scattered tools, and lost in translation across disconnected handoffs. When owners shift, tools multiply, and context fractures, critical momentum stops.
+The 3 Critical Failure Points:
+Fragmented Inputs: Data is locked inside Jira, Salesforce, SAP, Slack, and slide decks. No single source sees the whole picture.
+Lost Context: Strategic intent decays at every step between executive approval, manager routing, and individual task assignment.
+Lagging Indicators: Conventional dashboards tell you where projects failed two weeks ago—not where execution will break tomorrow.
+4. The Solution: The Execution Loop
+Visual Theme: Crisp Light Gray (bg-zinc-50) with high-contrast UI diagrams.
+Headline: The Execution Loop: From Raw Signals to Closed-Loop Outcomes.
+Sub-headline: Avenora continuously connects the work people already do to the commercial objectives that drive enterprise valuation.
+Three-Stage Progression:
+Ingest (Unified Signal Fabric): Continuously ingests cross-platform data from ERPs, task boards, meeting transcripts, and core APIs without disrupting existing workflows.
+Understand (Contextual Intelligence Engine): Context-aware LLMs and predictive agents synthesize dependencies, identify hidden bottlenecks, and calculate timeline variances.
+Act & Learn (Autonomous Forward Execution): Surfaces automated recommendations, updates downstream systems, re-aligns resources, and measures outcome velocity in real time.
+5. Core Capabilities: High-Frequency Jobs
+Visual Theme: Deep Charcoal/Black (bg-zinc-950) with Bento-Box grid layout, subtle borders (border-white/10), and neon green glow highlights.
+Section Tag: [ CAPABILITIES ]
+Headline: Five high-frequency jobs. One centralized execution engine.
+Bento Grid Breakdown:
+Card 1: Project Intelligence (Large Card)
+Copy: Multi-vector portfolio visibility. Predict delivery delays 3 sprints before they compound into missed milestones.
+Highlight: Real-time delivery health scoring & cross-system dependency mapping.
+Card 2: Meeting-to-Actions (Compact Card)
+Copy: Transform verbal commitments into tracked initiatives. Automatically capture decisions, tag accountable owners, and sync downstream task managers without manual meeting notes.
+Card 3: Risk & Issues Forecasting (Compact Card)
+Copy: Proactive vulnerability detection. AI monitors early-warning operational friction, shifting issues from firefighting to pre-emptive mitigation.
+Card 4: Dynamic Resource Planning (Medium Card)
+Copy: Balance team bandwidth with precision. Map team velocity to strategic priority weights, auto-rebalancing workloads to prevent burnout and project stalls.
+Card 5: Autonomous Workflow Automation (Medium Card)
+Copy: Trigger cross-functional action workflows via autonomous execution agents. Close the loop from event detection to system updates with zero human data entry.
+6. Who It's For: Persona Value Breakdown
+Visual Theme: Contrast Split Card Layout (bg-zinc-900).
+Headline: Engineered for alignment across every layer of leadership.
+Personas:
+For Executives (Strategic Signals):
+Value: High-fidelity portfolio oversight without endless steering committee meetings. Spot risks, track strategic OKR velocity, and align capital allocation to ground-truth execution.
+Metric: 10x faster strategic visibility from ground operations.
+For Project & Delivery Managers (Coordinated Execution):
+Value: Eliminate the administrative burden of status-chasing. Predict blockers, orchestrate cross-team dependencies, and coordinate releases seamlessly.
+Metric: Reclaim 12+ hours weekly spent compiling update decks.
+For Execution Teams (Autonomous Workflows):
+Value: Focus on core high-value output. Let Avenora capture action items from your natural tools and communications, automating updates silently in the background.
+Metric: Zero manual status duplication across disparate tools.
+7. Enterprise Infrastructure & Assurance
+Visual Theme: Deep Black (bg-black) with technical architecture diagrams.
+Section Tag: [ ARCHITECTURE & SECURITY ]
+Headline: Enterprise-grade by design. Zero compromise on security or data sovereignty.
+Pillars:
+Data Privacy & LLM Isolation: Customer data is never used to train foundational models. Dedicated tenant partitioning.
+Identity & Access Governance: Enterprise SSO (SAML 2.0, Okta, Azure AD), SCIM provisioning, and granular Role-Based Access Control (RBAC).
+High-Availability Cloud Foundation: Cloud-agnostic deployment architecture running on AWS/Azure with PostgreSQL infrastructure and 99.99% SLA availability.
+Zero-Trust Encryption: End-to-end AES-256 data encryption at rest and TLS 1.3 in transit.
+8. Final Call to Action
+Visual Theme: Deep Black (bg-black) with an intense neon green backlight glow (radial-gradient) and high-contrast pill action buttons.
+Headline: Stop Managing Delay. Turn Execution Into Your Competitive Advantage.
+Sub-headline: Request a tailored proof-of-value engagement or schedule a live architecture walkthrough with our enterprise engineering team.
+CTAs:
+Primary: "Schedule Enterprise Walkthrough" (Pill, Neon Lime)
+Secondary: "Review Security Whitepaper" (Pill, Outline)
+Part 2: UI Component Structure & Tailwind Utility Blueprint
+To implement the exact Black / White / Neon Lime Green aesthetic with high contrast and geometric typography, the codebase will use the following architectural structure:
+1. Color Palette Tokens & Custom Utilities
+Dark Backgrounds: bg-black, bg-zinc-950, bg-zinc-900/60 (cards)
+Light Sections: bg-white, bg-zinc-50
+Accent Neon/Lime Green: Custom HEX #CCFF00 and Tailwind text-lime-400, bg-lime-400, border-lime-400, with hover states hover:bg-lime-300
+Glow Effects: bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(204,255,0,0.15),rgba(255,255,255,0))]
+Borders & Dividers: border-white/10 on dark backgrounds; border-zinc-200 on light sections
+Buttons: rounded-full with tight tracking (tracking-tight font-semibold)
+Bento Grid Cards: rounded-3xl border border-white/10 bg-zinc-900/50 backdrop-blur-xl p-8 hover:border-lime-400/50 transition-all
+2. Component Tree Hierarchy
+code
+Text
+avenora-landing/
+├── components/
+│   ├── Navbar.tsx             # Fixed frosted dark header, logo with neon green accent, pill CTA
+│   ├── Hero.tsx               # Dark + radial neon green backlight, badge, headline, pill CTAs, UI preview
+│   ├── SocialProof.tsx        # Enterprise metrics ledger & compliance badges
+│   ├── ExecutionGap.tsx       # Crisp white contrasting section highlighting the breakdown
+│   ├── ExecutionLoop.tsx      # Step-by-step visual workflow (Ingest, Understand, Act)
+│   ├── BentoGrid.tsx          # 5 High-frequency jobs in a dark bento arrangement with neon accents
+│   ├── PersonaMatrix.tsx      # Value breakdown cards for Executives, PMs, and Teams
+│   ├── EnterpriseTrust.tsx    # Security, RBAC, SSO, AWS/Azure, ISO 27001
+│   ├── FinalCTA.tsx           # Glow container with primary conversion action
+│   └── Footer.tsx             # Clean minimal enterprise footer
+└── page.tsx                   # Main page orchestrator
+Confirmation Prompt
+Please confirm if this Website Architecture, Enterprise Copy, and Component / Tailwind Blueprint match your vision. Upon your confirmation, I will write out the complete, functional Next.js/React component tree with the exact styling and copy.
+Model 11:50 AM
+Here is the complete, modular, and production-ready Next.js (App Router), React, TypeScript, and Tailwind CSS implementation for Avenora AI.
+1. components/Navbar.tsx
+code
+Tsx
+import React from 'react';
+
+export const Navbar: React.FC = () => {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-black/80 backdrop-blur-md border-b border-white/10">
+      <div className="flex items-center space-x-2">
+        <div className="w-8 h-8 rounded-lg bg-lime-400 flex items-center justify-center font-black text-black text-xl">
+          A
+        </div>
+        <span className="text-white font-bold text-xl tracking-tight">
+          Avenora<span className="text-lime-400">.ai</span>
+        </span>
+      </div>
+
+      <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-300">
+        <a href="#gap" className="hover:text-lime-400 transition-colors">The Gap</a>
+        <a href="#loop" className="hover:text-lime-400 transition-colors">Execution Loop</a>
+        <a href="#capabilities" className="hover:text-lime-400 transition-colors">Capabilities</a>
+        <a href="#audience" className="hover:text-lime-400 transition-colors">Solutions</a>
+        <a href="#enterprise" className="hover:text-lime-400 transition-colors">Enterprise</a>
+      </nav>
+
+      <div className="flex items-center space-x-4">
+        <a
+          href="#cta"
+          className="px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold bg-lime-400 text-black hover:bg-lime-300 transition-all shadow-[0_0_20px_rgba(204,255,0,0.3)] tracking-tight"
+        >
+          Request Access
+        </a>
+      </div>
+    </header>
+  );
+};
+2. components/Hero.tsx
+code
+Tsx
+import React from 'react';
+
+export const Hero: React.FC = () => {
+  return (
+    <section className="relative min-h-screen pt-36 pb-20 px-6 md:px-12 bg-black flex flex-col items-center justify-center text-center overflow-hidden">
+      {/* Neon Green Radial Glow */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-lime-400/15 blur-[140px] pointer-events-none rounded-full" />
+
+      {/* Eyebrow Pill */}
+      <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-lime-400/30 bg-zinc-950/80 mb-8 z-10 backdrop-blur-md">
+        <span className="w-2 h-2 rounded-full bg-lime-400 animate-pulse" />
+        <span className="text-xs uppercase tracking-widest font-semibold text-lime-400">
+          Enterprise AI Business Execution Platform
+        </span>
+      </div>
+
+      {/* Main Headline */}
+      <h1 className="max-w-5xl text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.08] z-10">
+        Turn Execution Into an <span className="text-lime-400">Advantage.</span>
+      </h1>
+
+      {/* Sub-headline */}
+      <p className="mt-6 max-w-2xl text-lg sm:text-xl text-zinc-400 tracking-tight leading-relaxed z-10">
+        <strong className="text-white">See. Predict. Execute.</strong> Avenora AI bridges the gap between enterprise data, strategic decisions, and measurable outcomes.
+      </p>
+
+      {/* CTA Buttons */}
+      <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 z-10">
+        <a
+          href="#cta"
+          className="w-full sm:w-auto px-8 py-3.5 rounded-full text-base font-semibold bg-lime-400 text-black hover:bg-lime-300 transition-all shadow-[0_0_30px_rgba(204,255,0,0.4)] tracking-tight"
+        >
+          Request Enterprise Access
+        </a>
+        <a
+          href="#loop"
+          className="w-full sm:w-auto px-8 py-3.5 rounded-full text-base font-medium bg-zinc-900 border border-white/10 text-white hover:bg-zinc-800 transition-colors tracking-tight"
+        >
+          Explore the Loop &darr;
+        </a>
+      </div>
+
+      {/* Product Dashboard Visual Mockup */}
+      <div className="mt-16 w-full max-w-5xl rounded-2xl border border-white/10 bg-zinc-950/90 p-4 shadow-2xl relative z-10">
+        <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 text-left">
+          <div className="flex items-center space-x-2">
+            <span className="w-3 h-3 rounded-full bg-zinc-800" />
+            <span className="w-3 h-3 rounded-full bg-zinc-800" />
+            <span className="w-3 h-3 rounded-full bg-zinc-800" />
+            <span className="text-xs text-zinc-500 font-mono pl-2">avenora.internal/execution-graph</span>
+          </div>
+          <span className="text-xs text-lime-400 font-mono tracking-tight bg-lime-950/50 px-2.5 py-0.5 rounded-full border border-lime-400/20">
+            Loop Active: 99.8% Sync
+          </span>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left font-mono text-xs">
+          <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5">
+            <div className="text-zinc-500 mb-1 font-sans">DETECTED BOTTLENECK</div>
+            <div className="text-white text-sm font-sans font-semibold">ERP Migration — Stream 4</div>
+            <div className="mt-3 text-lime-400">+3.4 days delay risk mitigated</div>
+          </div>
+          <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5">
+            <div className="text-zinc-500 mb-1 font-sans">MEETING CONTEXT TRANSLATED</div>
+            <div className="text-white text-sm font-sans font-semibold">Q3 Exec SteerCo Decisions</div>
+            <div className="mt-3 text-zinc-300">14 direct actions routed to JIRA/APIs</div>
+          </div>
+          <div className="p-4 rounded-xl bg-zinc-900/60 border border-white/5">
+            <div className="text-zinc-500 mb-1 font-sans">PORTFOLIO TRAJECTORY</div>
+            <div className="text-white text-sm font-sans font-semibold">Confidence Index 94.2%</div>
+            <div className="mt-3 text-lime-400">Self-correcting allocation enabled</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+3. components/SocialProof.tsx
+code
+Tsx
+import React from 'react';
+
+export const SocialProof: React.FC = () => {
+  return (
+    <section className="py-12 bg-zinc-950 border-t border-b border-white/10 text-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <p className="text-xs uppercase tracking-widest text-zinc-500 font-semibold mb-8">
+          Eliminating execution gaps across mission-critical enterprises
+        </p>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center text-center">
+          <div>
+            <div className="text-3xl font-extrabold text-white tracking-tight">$4.2B+</div>
+            <div className="text-xs text-zinc-400 mt-1">Enterprise Workflows Guided</div>
+          </div>
+          <div>
+            <div className="text-3xl font-extrabold text-lime-400 tracking-tight">68%</div>
+            <div className="text-xs text-zinc-400 mt-1">Reduced Handoff Latency</div>
+          </div>
+          <div>
+            <div className="text-3xl font-extrabold text-white tracking-tight">100%</div>
+            <div className="text-xs text-zinc-400 mt-1">Context Retention Across Tools</div>
+          </div>
+          <div>
+            <div className="text-3xl font-extrabold text-lime-400 tracking-tight">SOC 2 / ISO</div>
+            <div className="text-xs text-zinc-400 mt-1">Strict Enterprise Compliance</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+4. components/ExecutionGap.tsx
+code
+Tsx
+import React from 'react';
+
+export const ExecutionGap: React.FC = () => {
+  return (
+    <section id="gap" className="py-24 px-6 md:px-12 bg-white text-zinc-950">
+      <div className="max-w-6xl mx-auto">
+        <div className="inline-block px-3.5 py-1 rounded-full bg-zinc-100 text-zinc-800 text-xs font-semibold uppercase tracking-widest mb-4">
+          The Problem
+        </div>
+        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight max-w-3xl leading-tight">
+          Enterprise teams have data everywhere. Execution still breaks in between.
+        </h2>
+        <p className="mt-6 text-lg sm:text-xl text-zinc-600 leading-relaxed max-w-3xl">
+          The core breakdown is a silent loss of context between decisions, owners, and direct execution—leaving leaders with fractured inputs and uncoordinated handoffs.
+        </p>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-200">
+            <div className="w-10 h-10 rounded-full bg-black text-white font-bold flex items-center justify-center mb-6">
+              01
+            </div>
+            <h3 className="text-xl font-bold tracking-tight mb-2">Fragmented Inputs</h3>
+            <p className="text-zinc-600 text-sm leading-relaxed">
+              Data is sequestered inside ERPs, PM tools, chat apps, and disparate spreadsheets. Context disintegrates between departments.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-200">
+            <div className="w-10 h-10 rounded-full bg-black text-white font-bold flex items-center justify-center mb-6">
+              02
+            </div>
+            <h3 className="text-xl font-bold tracking-tight mb-2">Broken Handoffs</h3>
+            <p className="text-zinc-600 text-sm leading-relaxed">
+              Decisions made in leadership meetings decay into static notes, failing to translate into dynamic, verified operational actions.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-2xl bg-zinc-50 border border-zinc-200">
+            <div className="w-10 h-10 rounded-full bg-black text-white font-bold flex items-center justify-center mb-6">
+              03
+            </div>
+            <h3 className="text-xl font-bold tracking-tight mb-2">Lagging Oversight</h3>
+            <p className="text-zinc-600 text-sm leading-relaxed">
+              Executives rely on rear-view dashboard telemetry. By the time delivery friction surfaces, critical deadlines are already missed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+5. components/ExecutionLoop.tsx
+code
+Tsx
+import React from 'react';
+
+export const ExecutionLoop: React.FC = () => {
+  return (
+    <section id="loop" className="py-24 px-6 md:px-12 bg-zinc-950 text-white border-t border-white/10">
+      <div className="max-w-6xl mx-auto text-center">
+        <div className="inline-block px-4 py-1.5 rounded-full border border-lime-400/30 bg-zinc-900 text-lime-400 text-xs font-semibold uppercase tracking-widest mb-4">
+          The Solution
+        </div>
+        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+          The Avenora <span className="text-lime-400">Execution Loop</span>
+        </h2>
+        <p className="mt-4 text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg">
+          Connecting the work people already do directly to the actions that move the business.
+        </p>
+
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+          {/* Step 1 */}
+          <div className="relative p-8 rounded-3xl bg-black border border-white/10 flex flex-col justify-between">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-lime-400 font-mono">Stage 01</span>
+              <h3 className="text-2xl font-bold tracking-tight mt-2 mb-4">1. Ingest</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Seamlessly aggregates data from your ERPs, operational software, communication tools, and proprietary APIs without replacing your stack.
+              </p>
+            </div>
+            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-500">
+              Jira • SAP • Slack • GitHub • Workday
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div className="relative p-8 rounded-3xl bg-black border border-lime-400/40 shadow-[0_0_30px_rgba(204,255,0,0.1)] flex flex-col justify-between">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-lime-400 font-mono">Stage 02</span>
+              <h3 className="text-2xl font-bold tracking-tight mt-2 mb-4">2. Understand</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Applies context-aware LLMs, predictive models, and autonomous agents to synthesize cross-functional context and reveal timeline risks.
+              </p>
+            </div>
+            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-lime-400/80">
+              LLMs + Real-Time Predictive Graph
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="relative p-8 rounded-3xl bg-black border border-white/10 flex flex-col justify-between">
+            <div>
+              <span className="text-xs uppercase tracking-widest text-lime-400 font-mono">Stage 03</span>
+              <h3 className="text-2xl font-bold tracking-tight mt-2 mb-4">3. Act &amp; Learn</h3>
+              <p className="text-zinc-400 text-sm leading-relaxed">
+                Recommends, assigns, and automates high-impact tasks. Continuously learns from execution outcomes to fine-tune future cycles.
+              </p>
+            </div>
+            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-500">
+              Autonomous Delivery Orchestration
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+6. components/BentoGrid.tsx
+code
+Tsx
+import React from 'react';
+
+export const BentoGrid: React.FC = () => {
+  return (
+    <section id="capabilities" className="py-24 px-6 md:px-12 bg-black text-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-lime-400/30 bg-zinc-900 text-lime-400 text-xs font-semibold uppercase tracking-widest mb-4">
+            Core Capabilities
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+            5 High-Frequency Jobs. One System.
+          </h2>
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg">
+            Purpose-built automation for the operational workloads that consume enterprise teams.
+          </p>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1: Project Intelligence (Wide) */}
+          <div className="md:col-span-2 p-8 rounded-3xl bg-zinc-950 border border-white/10 relative overflow-hidden group hover:border-lime-400/50 transition-all">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-lime-400/5 blur-3xl pointer-events-none rounded-full" />
+            <span className="text-lime-400 text-sm font-mono uppercase">01 / Intelligence</span>
+            <h3 className="text-2xl font-bold tracking-tight mt-2 mb-3">Project Intelligence</h3>
+            <p className="text-zinc-400 text-sm max-w-lg mb-6 leading-relaxed">
+              Synthesizes status across initiatives into continuous health indices. Predicts blockers before sprint velocity falters.
+            </p>
+            <ul className="space-y-2 text-xs text-zinc-300">
+              <li className="flex items-center space-x-2">
+                <span className="text-lime-400 font-bold">✓</span>
+                <span>Automated delivery variance forecasting</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="text-lime-400 font-bold">✓</span>
+                <span>Context-driven dependency mapping</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Card 2: Meeting-to-Actions */}
+          <div className="p-8 rounded-3xl bg-zinc-950 border border-white/10 group hover:border-lime-400/50 transition-all">
+            <span className="text-lime-400 text-sm font-mono uppercase">02 / Alignment</span>
+            <h3 className="text-xl font-bold tracking-tight mt-2 mb-3">Meeting-to-Actions</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+              Transforms real-time discussions into assigned initiatives with zero manual transcription.
+            </p>
+            <div className="text-xs text-zinc-500 font-mono bg-zinc-900 p-3 rounded-xl border border-white/5">
+              Syncs with Zoom, Teams, Meet
+            </div>
+          </div>
+
+          {/* Card 3: Risk & Issues */}
+          <div className="p-8 rounded-3xl bg-zinc-950 border border-white/10 group hover:border-lime-400/50 transition-all">
+            <span className="text-lime-400 text-sm font-mono uppercase">03 / Mitigation</span>
+            <h3 className="text-xl font-bold tracking-tight mt-2 mb-3">Risk &amp; Issues</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+              Proactively identifies operational and resource risks, elevating signals to owners before slippage occurs.
+            </p>
+            <div className="text-xs text-lime-400/90 font-mono bg-lime-950/20 p-3 rounded-xl border border-lime-400/20">
+              Continuous Risk Vector Scoring
+            </div>
+          </div>
+
+          {/* Card 4: Resource Planning */}
+          <div className="p-8 rounded-3xl bg-zinc-950 border border-white/10 group hover:border-lime-400/50 transition-all">
+            <span className="text-lime-400 text-sm font-mono uppercase">04 / Optimization</span>
+            <h3 className="text-xl font-bold tracking-tight mt-2 mb-3">Resource Planning</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+              Harmonizes team capacity with strategic priorities to prevent burnout and misallocated capital.
+            </p>
+            <div className="text-xs text-zinc-500 font-mono bg-zinc-900 p-3 rounded-xl border border-white/5">
+              Capacity vs. Delivery Indexing
+            </div>
+          </div>
+
+          {/* Card 5: Automation */}
+          <div className="p-8 rounded-3xl bg-zinc-950 border border-white/10 group hover:border-lime-400/50 transition-all">
+            <span className="text-lime-400 text-sm font-mono uppercase">05 / Execution</span>
+            <h3 className="text-xl font-bold tracking-tight mt-2 mb-3">Automation</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+              Autonomous agents execute routine follow-ups, sync downstream databases, and close administrative loops.
+            </p>
+            <div className="text-xs text-zinc-500 font-mono bg-zinc-900 p-3 rounded-xl border border-white/5">
+              Zero-Hand-off Workflows
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+7. components/PersonaMatrix.tsx
+code
+Tsx
+import React from 'react';
+
+export const PersonaMatrix: React.FC = () => {
+  return (
+    <section id="audience" className="py-24 px-6 md:px-12 bg-white text-zinc-950">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-block px-3.5 py-1 rounded-full bg-zinc-100 text-zinc-800 text-xs font-semibold uppercase tracking-widest mb-4">
+            Audience Alignment
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+            Built for Every Tier of Execution
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-8 rounded-2xl border border-zinc-200 bg-zinc-50">
+            <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Leadership</span>
+            <h3 className="text-2xl font-bold tracking-tight mt-1 mb-4">Executives</h3>
+            <p className="text-zinc-600 text-sm mb-6 leading-relaxed">
+              Gain transparent strategic signals and predictive portfolio health metrics without waiting for scheduled reviews.
+            </p>
+            <div className="pt-4 border-t border-zinc-200 text-xs font-semibold text-zinc-900">
+              Key Value: Unfiltered outcome visibility &amp; dynamic steerage.
+            </div>
+          </div>
+
+          <div className="p-8 rounded-2xl border-2 border-black bg-white shadow-xl relative">
+            <span className="text-xs font-bold uppercase tracking-wider text-lime-600">Operations</span>
+            <h3 className="text-2xl font-bold tracking-tight mt-1 mb-4">Project Managers</h3>
+            <p className="text-zinc-600 text-sm mb-6 leading-relaxed">
+              Coordinate multi-team execution effortlessly. Eliminate manual status tracking, broken handoffs, and chasing down updates.
+            </p>
+            <div className="pt-4 border-t border-zinc-200 text-xs font-semibold text-zinc-900">
+              Key Value: Context preservation &amp; predictive impediment alerts.
+            </div>
+          </div>
+
+          <div className="p-8 rounded-2xl border border-zinc-200 bg-zinc-50">
+            <span className="text-xs font-bold uppercase tracking-wider text-zinc-500">Contributors</span>
+            <h3 className="text-2xl font-bold tracking-tight mt-1 mb-4">Teams</h3>
+            <p className="text-zinc-600 text-sm mb-6 leading-relaxed">
+              Automate bureaucratic admin and update overhead. Focus on creating value within tools you already enjoy using.
+            </p>
+            <div className="pt-4 border-t border-zinc-200 text-xs font-semibold text-zinc-900">
+              Key Value: Automated reporting &amp; clear objective alignment.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+8. components/EnterpriseTrust.tsx
+code
+Tsx
+import React from 'react';
+
+export const EnterpriseTrust: React.FC = () => {
+  return (
+    <section id="enterprise" className="py-24 px-6 md:px-12 bg-zinc-950 text-white border-t border-white/10">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="inline-block px-4 py-1.5 rounded-full border border-lime-400/30 bg-zinc-900 text-lime-400 text-xs font-semibold uppercase tracking-widest mb-4">
+            Security &amp; Architecture
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
+            Enterprise by Design
+          </h2>
+          <p className="mt-4 text-zinc-400 text-base sm:text-lg">
+            Hardened compliance, strict tenant isolation, and battle-tested cloud primitives.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="p-8 rounded-3xl bg-black border border-white/10">
+            <h3 className="text-xl font-bold tracking-tight text-white mb-3">Enterprise Security</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+              Full data encryption at rest (AES-256) and in transit (TLS 1.3). Granular Role-Based Access Control (RBAC) and enterprise SSO (SAML/Okta).
+            </p>
+            <div className="text-xs font-mono text-lime-400">SOC 2 Type II • ISO 27001</div>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-black border border-white/10">
+            <h3 className="text-xl font-bold tracking-tight text-white mb-3">Global Compliance</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+              Complete adherence to GDPR and international data sovereignty mandates. Dedicated isolated tenant models ensure customer data privacy.
+            </p>
+            <div className="text-xs font-mono text-lime-400">Zero Public Model Training</div>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-black border border-white/10">
+            <h3 className="text-xl font-bold tracking-tight text-white mb-3">Cloud Infrastructure</h3>
+            <p className="text-zinc-400 text-sm leading-relaxed mb-6">
+              Deployable across AWS and Microsoft Azure. Built atop redundant PostgreSQL infrastructure with high-availability SLAs.
+            </p>
+            <div className="text-xs font-mono text-lime-400">AWS • Azure • PostgreSQL</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+9. components/FinalCTA.tsx
+code
+Tsx
+import React from 'react';
+
+export const FinalCTA: React.FC = () => {
+  return (
+    <section id="cta" className="relative py-28 px-6 md:px-12 bg-black text-white text-center overflow-hidden border-t border-white/10">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-lime-400/20 blur-[130px] pointer-events-none rounded-full" />
+
+      <div className="relative z-10 max-w-4xl mx-auto">
+        <h2 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
+          Ready to Close the <span className="text-lime-400">Execution Gap?</span>
+        </h2>
+        <p className="mt-6 text-zinc-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+          See. Predict. Execute. Start turning data, projects, and decisions into measurable outcomes today.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button className="w-full sm:w-auto px-9 py-4 rounded-full text-base font-semibold bg-lime-400 text-black hover:bg-lime-300 transition-all shadow-[0_0_35px_rgba(204,255,0,0.4)] tracking-tight">
+            Schedule Enterprise Demo
+          </button>
+          <button className="w-full sm:w-auto px-9 py-4 rounded-full text-base font-semibold bg-zinc-900 border border-white/20 text-white hover:bg-zinc-800 transition-colors tracking-tight">
+            Talk to an Architect
+          </button>
+        </div>
+
+        <div className="mt-8 text-xs font-mono text-zinc-500">
+          Encrypted • ISO 27001 Aligned • Dedicated Single-Tenant Deployments Available
+        </div>
+      </div>
+    </section>
+  );
+};
+10. components/Footer.tsx
+code
+Tsx
+import React from 'react';
+
+export const Footer: React.FC = () => {
+  return (
+    <footer className="py-12 px-6 md:px-12 bg-black text-zinc-500 text-xs border-t border-white/10">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex items-center space-x-2">
+          <div className="w-6 h-6 rounded bg-lime-400 flex items-center justify-center font-bold text-black text-sm">
+            A
+          </div>
+          <span className="text-white font-semibold text-sm tracking-tight">Avenora AI</span>
+        </div>
+        <p>© {new Date().getFullYear()} Avenora AI Inc. All rights reserved. Turning execution into an advantage.</p>
+        <div className="flex space-x-6 text-zinc-400">
+          <a href="#" className="hover:text-lime-400 transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-lime-400 transition-colors">Terms of Service</a>
+          <a href="#" className="hover:text-lime-400 transition-colors">Security Whitepaper</a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+11. Root Page Orchestrator: app/page.tsx
+code
+Tsx
+import React from 'react';
+import { Navbar } from '@/components/Navbar';
+import { Hero } from '@/components/Hero';
+import { SocialProof } from '@/components/SocialProof';
+import { ExecutionGap } from '@/components/ExecutionGap';
+import { ExecutionLoop } from '@/components/ExecutionLoop';
+import { BentoGrid } from '@/components/BentoGrid';
+import { PersonaMatrix } from '@/components/PersonaMatrix';
+import { EnterpriseTrust } from '@/components/EnterpriseTrust';
+import { FinalCTA } from '@/components/FinalCTA';
+import { Footer } from '@/components/Footer';
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-black font-sans text-white selection:bg-lime-400 selection:text-black">
+      <Navbar />
+      <Hero />
+      <SocialProof />
+      <ExecutionGap />
+      <ExecutionLoop />
+      <BentoGrid />
+      <PersonaMatrix />
+      <EnterpriseTrust />
+      <FinalCTA />
+      <Footer />
+    </main>
+  );
+}
+41.1s
+info
+Google AI models may make mistakes, so double-check outputs.
+Use Arrow Up and Arrow Down to select a turn, Enter to jump to it, and Escape to return to the chat.
+Start typing a prompt to see what our models can do
+
+
+
+
+
+
+
+

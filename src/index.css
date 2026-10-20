@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --color-brand-lime: #CCFF00;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom subtle glows */
+.glow-lime-subtle {
+  box-shadow: 0 0 35px -8px rgba(204, 255, 0, 0.25);
+}
+
+.glow-lime-intense {
+  box-shadow: 0 0 50px -5px rgba(204, 255, 0, 0.35);
+}

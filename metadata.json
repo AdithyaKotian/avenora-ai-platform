@@ -1,0 +1,6 @@
+{
+  "name": "Avenora AI — Enterprise AI Business Execution Platform",
+  "description": "Turn Execution Into an Advantage. Avenora AI unifies enterprise data, systems, and teams to eliminate broken handoffs and transform high-level strategy into verifiable business outcomes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
