@@ -5,9 +5,9 @@ import { Hero } from './components/Hero';
 import { SocialProof } from './components/SocialProof';
 import { ExecutionGap } from './components/ExecutionGap';
 import { ExecutionLoop } from './components/ExecutionLoop';
+import { AvenoraExecutionGraph } from './components/AvenoraExecutionGraph';
 import { BentoGrid } from './components/BentoGrid';
 import { PersonaMatrix } from './components/PersonaMatrix';
-import { PersonaImpact } from './components/PersonaImpact';
 import { EnterpriseTrust } from './components/EnterpriseTrust';
 import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
@@ -38,7 +38,7 @@ export default function App() {
           onOpenTour={() => setTourModalOpen(true)}
         />
 
-        {/* 2. Social Proof & Trust Ledger */}
+        {/* 2. Social Proof & Trust Signals */}
         <SocialProof />
 
         {/* 3. The Problem: The Execution Gap */}
@@ -47,29 +47,29 @@ export default function App() {
         {/* 4. The Solution: The Execution Loop */}
         <ExecutionLoop />
 
-        {/* 5. Core Capabilities: High-Frequency Jobs Bento Grid */}
+        {/* 5. Flagship: Interactive Execution Graph Demo */}
+        <AvenoraExecutionGraph />
+
+        {/* 6. Core Capabilities: High-Frequency Jobs Bento Grid */}
         <BentoGrid />
 
-        {/* 6. Persona Value Breakdown */}
+        {/* 7. Interactive Persona Experience */}
         <PersonaMatrix />
 
-        {/* 6b. Interactive Persona Impact */}
-        <PersonaImpact />
-
-        {/* 7. Enterprise Infrastructure & Assurance */}
+        {/* 8. Enterprise Infrastructure & Assurance */}
         <EnterpriseTrust
           onOpenWhitepaper={() => setWhitepaperModalOpen(true)}
           onOpenTour={() => setTourModalOpen(true)}
         />
 
-        {/* 8. Final Call to Action */}
+        {/* 9. Final Call to Action */}
         <FinalCTA
           onRequestDemo={() => setAccessModalOpen(true)}
           onOpenWhitepaper={() => setWhitepaperModalOpen(true)}
         />
       </main>
 
-      {/* 9. Footer */}
+      {/* 10. Footer */}
       <Footer
         onOpenWhitepaper={() => setWhitepaperModalOpen(true)}
         onRequestAccess={() => setAccessModalOpen(true)}

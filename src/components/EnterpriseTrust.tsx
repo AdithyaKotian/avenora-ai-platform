@@ -1,17 +1,34 @@
-import React from 'react';
-import { Shield, Lock, Server, Network } from 'lucide-react';
+import React, { useState } from 'react';
+import { Shield, Lock, Server, Network, Key, Users2, FileSearch, CheckCircle2 } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface EnterpriseTrustProps {
   onOpenWhitepaper: () => void;
   onOpenTour: () => void;
 }
 
+type TrustTab = 'security' | 'compliance' | 'integrations';
+
 export const EnterpriseTrust: React.FC<EnterpriseTrustProps> = ({ onOpenWhitepaper, onOpenTour }) => {
+  const [activeTab, setActiveTab] = useState<TrustTab>('security');
+
+  const tabs: { id: TrustTab; label: string }[] = [
+    { id: 'security', label: 'Security Architecture' },
+    { id: 'compliance', label: 'Compliance & Governance' },
+    { id: 'integrations', label: 'Enterprise Integrations' },
+  ];
+
   return (
     <section id="enterprise" className="py-24 px-6 md:px-12 bg-zinc-950 text-white border-t border-white/10 relative">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-14"
+        >
           <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-[#CCFF00]/30 bg-zinc-900 text-[#CCFF00] text-xs font-semibold uppercase tracking-widest mb-4">
             <span>ENTERPRISE BY DESIGN</span>
           </div>
@@ -21,91 +38,172 @@ export const EnterpriseTrust: React.FC<EnterpriseTrustProps> = ({ onOpenWhitepap
           <p className="mt-4 text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
             Zero compromise on security or data sovereignty. Engineered with hardened compliance targets and cloud-native architecture.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Card 1: Security by Default */}
-          <div className="p-8 rounded-3xl bg-black border border-white/10 flex flex-col justify-between hover:border-[#CCFF00]/40 transition-all">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
-                <Lock className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold tracking-tight text-white mb-3">
-                Security by Default
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Full cryptographic controls with end-to-end encryption in transit and at rest. Identity federation via enterprise SSO with granular RBAC governance and audit logs.
-              </p>
-            </div>
-            <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
-              TLS 1.3 · AES-256 · SSO · RBAC
-            </div>
-          </div>
-
-          {/* Card 2: Compliance Targets */}
-          <div className="p-8 rounded-3xl bg-black border border-white/10 flex flex-col justify-between hover:border-[#CCFF00]/40 transition-all">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
-                <Shield className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold tracking-tight text-white mb-3">
-                Compliance Targets
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Continuous compliance monitoring and independent third-party audits enforcing global privacy and governance mandates across jurisdictions.
-              </p>
-            </div>
-            <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
-              GDPR · UAE PDPL · ISO 27001 · SOC 2
-            </div>
-          </div>
-
-          {/* Card 3: Cloud Foundation */}
-          <div className="p-8 rounded-3xl bg-black border border-white/10 flex flex-col justify-between hover:border-[#CCFF00]/40 transition-all">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
-                <Server className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold tracking-tight text-white mb-3">
-                Cloud Foundation
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Deployable across leading hyperscalers. Multi-database persistence architecture leveraging relational and document datastores with high availability.
-              </p>
-            </div>
-            <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
-              AWS · Azure · PostgreSQL · MongoDB
-            </div>
-          </div>
-
-          {/* Card 4: APIs & Connectors */}
-          <div className="p-8 rounded-3xl bg-black border border-white/10 flex flex-col justify-between hover:border-[#CCFF00]/40 transition-all">
-            <div>
-              <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
-                <Network className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold tracking-tight text-white mb-3">
-                APIs &amp; Connectors
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-6">
-                Zero-friction integration fabric with bi-directional streaming webhooks, RESTful endpoints, and developer SDKs connecting to your core enterprise applications.
-              </p>
-            </div>
-            <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
-              REST APIs · Webhooks · SDKs
-            </div>
+        {/* Tab Navigation */}
+        <div className="flex items-center justify-center mb-8">
+          <div className="inline-flex p-1 bg-zinc-950 rounded-full border border-white/10">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 sm:px-5 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
+                  activeTab === tab.id
+                    ? 'bg-[#CCFF00] text-black shadow-md'
+                    : 'text-zinc-400 hover:text-white'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
         </div>
+
+        {/* Tab Content */}
+        <AnimatePresence mode="wait">
+          {activeTab === 'security' && (
+            <motion.div
+              key="security"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              <div className="p-8 rounded-3xl bg-black border border-white/10 hover:border-[#CCFF00]/40 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
+                  <Lock className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-white mb-3">Encryption</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  AES-256 encryption at rest across all storage volumes. TLS 1.3 enforced for all network traffic with HSTS headers.
+                </p>
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
+                  AES-256 · TLS 1.3 · HSTS
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-black border border-white/10 hover:border-[#CCFF00]/40 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
+                  <Key className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-white mb-3">Identity & RBAC</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  SAML 2.0 and OIDC federation with enterprise SSO providers. Granular role-based access controls and automated SCIM provisioning.
+                </p>
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
+                  SSO · RBAC · SCIM 2.0
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-black border border-white/10 hover:border-[#CCFF00]/40 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
+                  <FileSearch className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-white mb-3">Audit Logging</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  Immutable audit trail for all system actions. Complete traceability from data ingestion through to automated execution with configurable retention.
+                </p>
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
+                  Immutable Logs · Full Traceability
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {activeTab === 'compliance' && (
+            <motion.div
+              key="compliance"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              <div className="p-8 rounded-3xl bg-black border border-white/10 hover:border-[#CCFF00]/40 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-white mb-3">Compliance Architecture</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  Platform designed and engineered against SOC 2 Type II, ISO 27001, GDPR, and UAE PDPL requirements. Continuous monitoring and third-party assessments validate compliance posture.
+                </p>
+                <ul className="space-y-2">
+                  {['SOC 2 Type II aligned controls', 'ISO 27001 information security management', 'GDPR data protection compliance', 'UAE PDPL Federal Decree-Law No. 45'].map((item, idx) => (
+                    <li key={idx} className="flex items-start space-x-2 text-xs text-zinc-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#CCFF00] shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-black border border-white/10 hover:border-[#CCFF00]/40 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
+                  <Users2 className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-white mb-3">Data Sovereignty</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  Complete tenant isolation with zero cross-customer data access. Customer data is never used to train, fine-tune, or evaluate shared models.
+                </p>
+                <ul className="space-y-2">
+                  {['Strict tenant data partitioning', 'Customer-managed encryption keys (CMEK)', 'Regional data residency options', 'Zero model training on customer data'].map((item, idx) => (
+                    <li key={idx} className="flex items-start space-x-2 text-xs text-zinc-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#CCFF00] shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )}
+
+          {activeTab === 'integrations' && (
+            <motion.div
+              key="integrations"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            >
+              <div className="p-8 rounded-3xl bg-black border border-white/10 hover:border-[#CCFF00]/40 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
+                  <Server className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-white mb-3">Cloud Infrastructure</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  Deployable across leading hyperscalers with multi-database persistence architecture. Support for dedicated VPC deployments and single-tenant configurations.
+                </p>
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
+                  AWS · Azure · PostgreSQL · MongoDB
+                </div>
+              </div>
+
+              <div className="p-8 rounded-3xl bg-black border border-white/10 hover:border-[#CCFF00]/40 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-[#CCFF00] mb-6">
+                  <Network className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold tracking-tight text-white mb-3">APIs & Connectors</h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-4">
+                  Zero-friction integration fabric with bidirectional streaming webhooks, RESTful endpoints, and developer SDKs. 42+ native enterprise connectors.
+                </p>
+                <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#CCFF00]">
+                  REST APIs · Webhooks · SDKs · CDC
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Security Audit Banner */}
         <div className="mt-12 p-8 rounded-3xl bg-black border border-white/15 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h4 className="text-xl font-bold text-white tracking-tight">
-              Looking for our Comprehensive Enterprise Security Audit?
+              Review Our Enterprise Security Architecture
             </h4>
             <p className="text-zinc-400 text-sm mt-1">
-              Download our complete SOC 2 Type II assurance package, ISO 27001 mapping, GDPR / UAE PDPL data protection whitepaper.
+              Download the security whitepaper or explore the interactive architecture walkthrough.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">

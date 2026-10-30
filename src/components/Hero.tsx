@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, Pause, AlertTriangle, Zap, Activity } from 'lucide-react';
+import { ArrowRight, Play, Pause, AlertTriangle, Zap, Activity, Shield, Database, BrainCircuit, Rocket } from 'lucide-react';
 
 interface HeroProps {
   onRequestAccess: () => void;
@@ -26,10 +26,10 @@ export const Hero: React.FC<HeroProps> = ({ onRequestAccess, onOpenTour }) => {
   }, [isSimulating]);
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 px-6 md:px-12 bg-black flex flex-col items-center justify-center text-center overflow-hidden">
+    <section className="relative min-h-screen pt-24 pb-16 px-6 md:px-12 bg-black flex flex-col items-center justify-center text-center overflow-hidden">
       {/* Ambient Neon Green Radial Glow */}
       <div 
-        className="absolute top-28 left-1/2 -translate-x-1/2 w-[720px] h-[480px] pointer-events-none rounded-full"
+        className="absolute top-20 left-1/2 -translate-x-1/2 w-[720px] h-[480px] pointer-events-none rounded-full"
         style={{
           background: 'radial-gradient(circle, rgba(204,255,0,0.18) 0%, rgba(204,255,0,0.05) 45%, rgba(0,0,0,0) 70%)',
           filter: 'blur(90px)',
@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestAccess, onOpenTour }) => {
       />
 
       {/* Eyebrow Badge with Green Dot */}
-      <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full border border-[#CCFF00]/30 bg-zinc-950/90 mb-8 z-10 backdrop-blur-md shadow-[0_0_20px_rgba(204,255,0,0.1)]">
+      <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full border border-[#CCFF00]/30 bg-zinc-950/90 mb-6 z-10 backdrop-blur-md shadow-[0_0_20px_rgba(204,255,0,0.1)]">
         <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-pulse" />
         <span className="text-xs uppercase tracking-widest font-semibold text-[#CCFF00]">
           ENTERPRISE AI EXECUTION PLATFORM
@@ -59,12 +59,12 @@ export const Hero: React.FC<HeroProps> = ({ onRequestAccess, onOpenTour }) => {
       </h1>
 
       {/* Sub-headline */}
-      <p className="mt-6 max-w-3xl text-lg sm:text-xl text-zinc-400 tracking-tight leading-relaxed z-10">
+      <p className="mt-5 max-w-3xl text-lg sm:text-xl text-zinc-400 tracking-tight leading-relaxed z-10">
         <strong className="text-white font-semibold">See. Predict. Execute.</strong> Avenora AI unifies enterprise data, systems, and teams to eliminate broken handoffs and transform high-level strategy into verifiable business outcomes.
       </p>
 
       {/* CTA Button Group */}
-      <div className="mt-10 flex flex-col sm:flex-row items-center gap-4 z-10">
+      <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 z-10">
         <button
           id="hero-request-access"
           onClick={onRequestAccess}
@@ -83,13 +83,37 @@ export const Hero: React.FC<HeroProps> = ({ onRequestAccess, onOpenTour }) => {
         </button>
       </div>
 
-      {/* Platform Signal Tagline */}
-      <div className="mt-6 z-10 text-xs sm:text-sm text-zinc-400 font-medium">
-        Zero manual status reports · Zero context loss · Built for enterprise scale
+      {/* Compact Architecture Status */}
+      <div className="mt-6 z-10 flex flex-wrap items-center justify-center gap-6 text-xs text-zinc-400">
+        <div className="flex items-center space-x-2">
+          <div className="w-6 h-6 rounded-md bg-zinc-900 border border-white/10 flex items-center justify-center">
+            <Database className="w-3 h-3 text-[#CCFF00]" />
+          </div>
+          <span className="font-mono">Ingest</span>
+        </div>
+        <span className="text-[#CCFF00]/50">→</span>
+        <div className="flex items-center space-x-2">
+          <div className="w-6 h-6 rounded-md bg-zinc-900 border border-white/10 flex items-center justify-center">
+            <BrainCircuit className="w-3 h-3 text-[#CCFF00]" />
+          </div>
+          <span className="font-mono">Understand</span>
+        </div>
+        <span className="text-[#CCFF00]/50">→</span>
+        <div className="flex items-center space-x-2">
+          <div className="w-6 h-6 rounded-md bg-zinc-900 border border-white/10 flex items-center justify-center">
+            <Rocket className="w-3 h-3 text-[#CCFF00]" />
+          </div>
+          <span className="font-mono">Execute</span>
+        </div>
+        <span className="text-zinc-600 hidden sm:inline">·</span>
+        <div className="flex items-center space-x-1.5">
+          <Shield className="w-3.5 h-3.5 text-[#CCFF00]" />
+          <span className="font-mono">Enterprise-Grade</span>
+        </div>
       </div>
 
       {/* Product Dashboard Visual Mockup */}
-      <div className="mt-14 w-full max-w-5xl rounded-3xl border border-white/10 bg-zinc-950/95 p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] relative z-10 backdrop-blur-xl text-left">
+      <div className="mt-10 w-full max-w-5xl rounded-3xl border border-white/10 bg-zinc-950/95 p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] relative z-10 backdrop-blur-xl text-left">
         {/* Terminal Header */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4 mb-5">
           <div className="flex items-center space-x-3">
@@ -244,7 +268,7 @@ export const Hero: React.FC<HeroProps> = ({ onRequestAccess, onOpenTour }) => {
             <span className="text-white bg-zinc-800 px-2 py-0.5 rounded">Automated Execution</span>
           </div>
           <div className="text-zinc-500 font-mono text-[11px]">
-            Mean latency: <span className="text-[#CCFF00] font-semibold">14ms</span>
+            Simulated telemetry demo
           </div>
         </div>
       </div>

@@ -102,18 +102,18 @@ export const ExecutionLoop: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
             onClick={() => setActiveStage(1)}
-            className={`p-8 rounded-3xl cursor-pointer transition-colors flex flex-col justify-between ${
+            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between ${
               activeStage === 1
-                ? 'bg-zinc-900 border-2 border-white/40 shadow-xl'
+                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.18)]'
                 : 'bg-black border border-white/10 hover:border-white/30'
             }`}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs uppercase tracking-widest font-mono text-zinc-400">
+                <span className={`text-xs uppercase tracking-widest font-mono ${activeStage === 1 ? 'text-[#CCFF00]' : 'text-zinc-400'}`}>
                   Stage 01
                 </span>
-                <div className="w-8 h-8 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activeStage === 1 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'}`}>
                   <Database className="w-4 h-4" />
                 </div>
               </div>
@@ -128,7 +128,7 @@ export const ExecutionLoop: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card 2: Understand (Prominent Neon Green Border) */}
+          {/* Card 2: Understand */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -136,19 +136,23 @@ export const ExecutionLoop: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
             onClick={() => setActiveStage(2)}
-            className="p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.18)]"
+            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between ${
+              activeStage === 2
+                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.18)]'
+                : 'bg-black border border-white/10 hover:border-white/30'
+            }`}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs uppercase tracking-widest font-mono text-[#CCFF00]">
+                <span className={`text-xs uppercase tracking-widest font-mono ${activeStage === 2 ? 'text-[#CCFF00]' : 'text-zinc-400'}`}>
                   Stage 02 · Core AI
                 </span>
-                <div className="w-8 h-8 rounded-full bg-[#CCFF00] text-black font-bold flex items-center justify-center">
+                <div className={`w-8 h-8 rounded-full font-bold flex items-center justify-center ${activeStage === 2 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'}`}>
                   <BrainCircuit className="w-4 h-4" />
                 </div>
               </div>
               <h3 className="text-2xl font-bold tracking-tight mb-3 text-white">2. Understand</h3>
-              <p className="text-zinc-300 text-sm leading-relaxed">
+              <p className={`text-sm leading-relaxed ${activeStage === 2 ? 'text-zinc-300' : 'text-zinc-400'}`}>
                 Applies context-aware LLMs, knowledge graphs, and predictive agents to synthesize cross-functional dependencies and uncover hidden timeline risks.
               </p>
             </div>
@@ -166,18 +170,18 @@ export const ExecutionLoop: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             whileHover={{ y: -5, transition: { duration: 0.2 } }}
             onClick={() => setActiveStage(3)}
-            className={`p-8 rounded-3xl cursor-pointer transition-colors flex flex-col justify-between ${
+            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between ${
               activeStage === 3
-                ? 'bg-zinc-900 border-2 border-white/40 shadow-xl'
+                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.18)]'
                 : 'bg-black border border-white/10 hover:border-white/30'
             }`}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="text-xs uppercase tracking-widest font-mono text-zinc-400">
+                <span className={`text-xs uppercase tracking-widest font-mono ${activeStage === 3 ? 'text-[#CCFF00]' : 'text-zinc-400'}`}>
                   Stage 03
                 </span>
-                <div className="w-8 h-8 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center">
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activeStage === 3 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'}`}>
                   <Rocket className="w-4 h-4" />
                 </div>
               </div>
