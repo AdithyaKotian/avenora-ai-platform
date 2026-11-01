@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Database, BrainCircuit, Rocket, Terminal } from 'lucide-react';
+import { Database, BrainCircuit, Rocket, Terminal, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 export const ExecutionLoop: React.FC = () => {
-  const [activeStage, setActiveStage] = useState<1 | 2 | 3>(2);
+  const [activeStage, setActiveStage] = useState<1 | 2 | 3>(1);
 
   const stageDetails = {
     1: {
@@ -11,7 +11,7 @@ export const ExecutionLoop: React.FC = () => {
       title: 'Unified Signal Fabric',
       description:
         'Seamlessly aggregates data from your enterprise ERPs, task management systems, meeting transcripts, and git repositories without disrupting existing team tools.',
-      subtext: 'Zero adoption friction: teams keep working in Jira, Slack, Teams, and Salesforce.',
+      subtext: 'Zero adoption friction: teams keep working in Jira, Slack, Teams, SAP, and Salesforce.',
       telemetry: [
         { label: 'Connectors Active', value: '42+ Enterprise APIs' },
         { label: 'Event Ingestion Rate', value: '18,500 events/sec' },
@@ -30,38 +30,39 @@ export const ExecutionLoop: React.FC = () => {
       tag: 'Stage 02 · Reasoning & Synthesis',
       title: 'Contextual Intelligence Engine',
       description:
-        'Applies context-aware LLMs, knowledge graphs, and predictive agents to synthesize cross-functional dependencies and uncover hidden timeline risks.',
-      subtext: 'Translates unstructured conversations and ticket status into structural multi-vector graphs.',
+        'Applies context-aware LLMs, retrieval-augmented evidence (RAG), and predictive agents to synthesize cross-functional dependencies and uncover hidden timeline risks.',
+      subtext: 'Translates unstructured conversations and ticket status into structural multi-vector graphs with traceable citations.',
       telemetry: [
         { label: 'Dependency Graph Nodes', value: '280,000+ linked entities' },
         { label: 'Bottleneck Detection', value: '3 sprints advance warning' },
-        { label: 'Inference Precision', value: '99.4% F1 Entity Linking' },
+        { label: 'Evidence Grounding', value: '100% Source-Linked RAG' },
       ],
       samplePayload: `// Contextual Intelligence Graph
 {
   "initiative": "APAC SOC2 Compliance",
   "critical_path_bottleneck": "IAM audit lagging by 6 days",
-  "impacted_milestone": "Customer Contract Signings",
+  "rag_citations": ["SAP_PO_4402", "JIRA_ENG_402", "STEERCO_TR_402"],
   "predictive_variance": "-3.8 days without re-routing",
   "confidence_score": 0.942
 }`,
     },
     3: {
-      tag: 'Stage 03 · Forward Execution',
-      title: 'Autonomous Forward Execution',
+      tag: 'Stage 03 · Governed Execution',
+      title: 'Human-Gated Forward Execution',
       description:
-        'Recommends, routes, and automates high-impact actions. Continuously learns from outcome velocity to fine-tune future delivery cycles.',
-      subtext: 'Closes the loop from intent to verification with automated audit trails and feedback cycles.',
+        'Recommends, routes, and automates high-impact actions with configurable human-in-the-loop (HITL) approval gates. Continuously learns from outcome velocity.',
+      subtext: 'AI proposes cross-system updates; authorized leaders approve before production execution.',
       telemetry: [
-        { label: 'Automated Action Handlers', value: 'Bidirectional sync' },
+        { label: 'Action Governance', value: 'RBAC + HITL Approval Gates' },
         { label: 'Admin Overhead Saved', value: '12+ hrs/week per PM' },
-        { label: 'Audit Trail Retention', value: '100% Immutable log' },
+        { label: 'Audit Trail Retention', value: '100% Immutable SHA-256' },
       ],
-      samplePayload: `// Forward Execution Dispatch
+      samplePayload: `// Governed Execution Dispatch
 {
-  "action": "orchestration.autonomous_rebalance",
+  "action": "orchestration.hitl_rebalance",
+  "approved_by": "role:lead_architect (SSO_VERIFIED)",
   "dispatches": [
-    { "target": "jira.jira_v2", "action": "reassign_subtasks", "count": 4 },
+    { "target": "jira.v2", "action": "reassign_subtasks", "count": 4 },
     { "target": "slack.security_leads", "action": "post_decision_digest" },
     { "target": "sap.project_portfolio", "action": "sync_forecast" }
   ],
@@ -88,116 +89,152 @@ export const ExecutionLoop: React.FC = () => {
             The Avenora <span className="text-[#CCFF00]">Execution Loop</span>
           </h2>
           <p className="mt-4 text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg">
-            From raw operational signals to closed-loop verifiable business outcomes.
+            Connect the work people already do to the actions that move the business—from raw operational signals to closed-loop verifiable outcomes.
           </p>
         </motion.div>
 
-        {/* 3 Step Cards with staggered entrance & subtle hover elevation */}
+        {/* 3 Step Cards with consistent active border states */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Card 1: Ingest */}
-          <motion.div
+          <motion.button
+            type="button"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
             onClick={() => setActiveStage(1)}
-            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between ${
+            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between text-left ${
               activeStage === 1
-                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.18)]'
+                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.16)]'
                 : 'bg-black border border-white/10 hover:border-white/30'
             }`}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className={`text-xs uppercase tracking-widest font-mono ${activeStage === 1 ? 'text-[#CCFF00]' : 'text-zinc-400'}`}>
-                  Stage 01
+                <span
+                  className={`text-xs uppercase tracking-widest font-mono ${
+                    activeStage === 1 ? 'text-[#CCFF00]' : 'text-zinc-400'
+                  }`}
+                >
+                  Stage 01 · Signal Fabric
                 </span>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activeStage === 1 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'}`}>
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    activeStage === 1 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'
+                  }`}
+                >
                   <Database className="w-4 h-4" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold tracking-tight mb-3">1. Ingest</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
+              <h3 className="text-2xl font-bold tracking-tight mb-3 text-white">1. Ingest</h3>
+              <p className="text-zinc-300 text-sm leading-relaxed">
                 Seamlessly aggregates data from your enterprise ERPs, task management systems, meeting transcripts, and git repositories without disrupting existing team tools.
               </p>
             </div>
-            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-400 flex items-center justify-between">
+            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-400 flex items-center justify-between w-full">
               <span>Jira · SAP · Slack · Teams</span>
-              <span className="text-[#CCFF00]">{activeStage === 1 ? 'Selected' : 'View Payload →'}</span>
+              <span className="text-[#CCFF00] inline-flex items-center space-x-1">
+                <span>{activeStage === 1 ? 'Inspecting' : 'Inspect'}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </span>
             </div>
-          </motion.div>
+          </motion.button>
 
           {/* Card 2: Understand */}
-          <motion.div
+          <motion.button
+            type="button"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
             onClick={() => setActiveStage(2)}
-            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between ${
+            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between text-left ${
               activeStage === 2
-                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.18)]'
+                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.16)]'
                 : 'bg-black border border-white/10 hover:border-white/30'
             }`}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className={`text-xs uppercase tracking-widest font-mono ${activeStage === 2 ? 'text-[#CCFF00]' : 'text-zinc-400'}`}>
-                  Stage 02 · Core AI
+                <span
+                  className={`text-xs uppercase tracking-widest font-mono ${
+                    activeStage === 2 ? 'text-[#CCFF00]' : 'text-zinc-400'
+                  }`}
+                >
+                  Stage 02 · Core AI &amp; RAG
                 </span>
-                <div className={`w-8 h-8 rounded-full font-bold flex items-center justify-center ${activeStage === 2 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'}`}>
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    activeStage === 2 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'
+                  }`}
+                >
                   <BrainCircuit className="w-4 h-4" />
                 </div>
               </div>
               <h3 className="text-2xl font-bold tracking-tight mb-3 text-white">2. Understand</h3>
-              <p className={`text-sm leading-relaxed ${activeStage === 2 ? 'text-zinc-300' : 'text-zinc-400'}`}>
-                Applies context-aware LLMs, knowledge graphs, and predictive agents to synthesize cross-functional dependencies and uncover hidden timeline risks.
+              <p className="text-zinc-300 text-sm leading-relaxed">
+                Applies context-aware LLMs, retrieval-augmented evidence, and predictive agents to synthesize cross-functional dependencies and uncover hidden timeline risks.
               </p>
             </div>
-            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-300 flex items-center justify-between">
-              <span className="text-[#CCFF00]">Neural Knowledge Graph</span>
-              <span className="text-[#CCFF00]">{activeStage === 2 ? 'Selected' : 'View Payload →'}</span>
+            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-400 flex items-center justify-between w-full">
+              <span>Neural Knowledge Graph</span>
+              <span className="text-[#CCFF00] inline-flex items-center space-x-1">
+                <span>{activeStage === 2 ? 'Inspecting' : 'Inspect'}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </span>
             </div>
-          </motion.div>
+          </motion.button>
 
           {/* Card 3: Act & Learn */}
-          <motion.div
+          <motion.button
+            type="button"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            whileHover={{ y: -4, transition: { duration: 0.2 } }}
             onClick={() => setActiveStage(3)}
-            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between ${
+            className={`p-8 rounded-3xl cursor-pointer transition-all flex flex-col justify-between text-left ${
               activeStage === 3
-                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.18)]'
+                ? 'bg-zinc-900 border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.16)]'
                 : 'bg-black border border-white/10 hover:border-white/30'
             }`}
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className={`text-xs uppercase tracking-widest font-mono ${activeStage === 3 ? 'text-[#CCFF00]' : 'text-zinc-400'}`}>
-                  Stage 03
+                <span
+                  className={`text-xs uppercase tracking-widest font-mono ${
+                    activeStage === 3 ? 'text-[#CCFF00]' : 'text-zinc-400'
+                  }`}
+                >
+                  Stage 03 · HITL Execution
                 </span>
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${activeStage === 3 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'}`}>
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    activeStage === 3 ? 'bg-[#CCFF00] text-black' : 'bg-zinc-800 text-zinc-300'
+                  }`}
+                >
                   <Rocket className="w-4 h-4" />
                 </div>
               </div>
-              <h3 className="text-2xl font-bold tracking-tight mb-3">3. Act &amp; Learn</h3>
-              <p className="text-zinc-400 text-sm leading-relaxed">
-                Recommends, routes, and automates high-impact actions. Continuously learns from outcome velocity to fine-tune future delivery cycles.
+              <h3 className="text-2xl font-bold tracking-tight mb-3 text-white">3. Act &amp; Learn</h3>
+              <p className="text-zinc-300 text-sm leading-relaxed">
+                Recommends, routes, and automates high-impact actions with human-in-the-loop governance. Continuously learns from outcome velocity to refine future delivery.
               </p>
             </div>
-            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-400 flex items-center justify-between">
-              <span>Autonomous Forward Execution</span>
-              <span className="text-[#CCFF00]">{activeStage === 3 ? 'Selected' : 'View Payload →'}</span>
+            <div className="mt-8 pt-4 border-t border-white/10 text-xs font-mono text-zinc-400 flex items-center justify-between w-full">
+              <span>Governed Forward Execution</span>
+              <span className="text-[#CCFF00] inline-flex items-center space-x-1">
+                <span>{activeStage === 3 ? 'Inspecting' : 'Inspect'}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </span>
             </div>
-          </motion.div>
+          </motion.button>
         </div>
 
-        {/* Live Stage Inspection Terminal Box with smooth animated transition */}
+        {/* Live Stage Inspection Terminal Box */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -225,7 +262,7 @@ export const ExecutionLoop: React.FC = () => {
                 <p className="text-zinc-300 text-sm leading-relaxed mb-4">
                   {stageDetails[activeStage].description}
                 </p>
-                <p className="text-xs text-zinc-500 font-medium mb-6">
+                <p className="text-xs text-zinc-400 font-medium mb-6">
                   {stageDetails[activeStage].subtext}
                 </p>
 
@@ -245,9 +282,9 @@ export const ExecutionLoop: React.FC = () => {
                 <div className="flex items-center justify-between pb-3 border-b border-white/10 text-zinc-400 text-[11px]">
                   <div className="flex items-center space-x-2">
                     <Terminal className="w-3.5 h-3.5 text-[#CCFF00]" />
-                    <span>Telemetry Inspector</span>
+                    <span>Stage 0{activeStage} Telemetry Payload</span>
                   </div>
-                  <span className="text-[#CCFF00]">Live Stream</span>
+                  <span className="text-[#CCFF00]">Schema Verified</span>
                 </div>
                 <pre className="mt-3 text-zinc-300 overflow-x-auto leading-relaxed text-[11px]">
                   <code>{stageDetails[activeStage].samplePayload}</code>

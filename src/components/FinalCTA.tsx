@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Lock } from 'lucide-react';
+import { ShieldCheck, Lock, ArrowRight } from 'lucide-react';
 
 interface FinalCTAProps {
   onRequestDemo: () => void;
@@ -10,10 +10,11 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onRequestDemo, onOpenWhitepa
   return (
     <section id="cta" className="relative py-32 px-6 md:px-12 bg-black text-white text-center overflow-hidden border-t border-white/10">
       {/* Background Neon Lime Glow */}
-      <div 
+      <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[400px] pointer-events-none rounded-full"
         style={{
-          background: 'radial-gradient(circle, rgba(204,255,0,0.22) 0%, rgba(204,255,0,0.06) 50%, rgba(0,0,0,0) 70%)',
+          background:
+            'radial-gradient(circle, rgba(204,255,0,0.22) 0%, rgba(204,255,0,0.06) 50%, rgba(0,0,0,0) 70%)',
           filter: 'blur(100px)',
         }}
       />
@@ -40,14 +41,15 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onRequestDemo, onOpenWhitepa
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
-          id="cta-request-demo"
+            type="button"
             onClick={onRequestDemo}
-            className="w-full sm:w-auto px-9 py-4 rounded-full text-base font-semibold bg-[#CCFF00] text-black hover:bg-[#b8e600] active:scale-95 transition-all shadow-[0_0_35px_rgba(204,255,0,0.4)] tracking-tight flex items-center justify-center space-x-2 cursor-pointer"
-            aria-label="Schedule an enterprise walkthrough of Avenora AI"
+            className="group w-full sm:w-auto px-9 py-4 rounded-full text-base font-semibold bg-[#CCFF00] text-black hover:bg-[#b8e600] active:scale-95 transition-all shadow-[0_0_35px_rgba(204,255,0,0.4)] tracking-tight flex items-center justify-center space-x-2 cursor-pointer"
           >
-            <span>Schedule Enterprise Walkthrough →</span>
+            <span>Schedule Enterprise Walkthrough</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
           <button
+            type="button"
             onClick={onOpenWhitepaper}
             className="w-full sm:w-auto px-9 py-4 rounded-full text-base font-semibold bg-zinc-950 border border-white/20 text-white hover:bg-zinc-900 transition-colors tracking-tight flex items-center justify-center space-x-2 cursor-pointer"
           >
